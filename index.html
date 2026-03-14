@@ -3,13 +3,13 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Outpost Group | Estratégia e Tecnologia</title>
+    <title>Outpost Group | Soluções Tecnológicas Estratégicas</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
         :root {
-            --bg-deep: #0b0f1a;
-            --bg-card: rgba(17, 24, 39, 0.7);
+            --bg-deep: #060910;
+            --bg-card: rgba(17, 24, 39, 0.4);
             --accent-blue: #3b82f6;
             --accent-purple: #8b5cf6;
             --gradient-main: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
@@ -19,184 +19,319 @@
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Inter', sans-serif; scroll-behavior: smooth; }
-        body { background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden; line-height: 1.5; }
-        h1, h2, h3, .logo-text { font-family: 'Space Grotesk', sans-serif; }
+        body { background-color: var(--bg-deep); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
+        h1, h2, h3, h4, .logo-text { font-family: 'Space Grotesk', sans-serif; }
 
+        /* Glow dinâmico */
         .glow-bg {
-            position: fixed; width: 300px; height: 300px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
-            z-index: -1; filter: blur(60px); pointer-events: none;
+            position: fixed; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.12) 0%, transparent 70%);
+            z-index: -1; filter: blur(80px); pointer-events: none;
+            transition: transform 0.1s ease-out;
         }
 
+        /* Nav */
         nav {
             position: fixed; top: 0; width: 100%; display: flex; justify-content: space-between;
-            align-items: center; padding: 1rem 5%; background: rgba(11, 15, 26, 0.9);
-            backdrop-filter: blur(12px); z-index: 1000; border-bottom: 1px solid var(--glass-border);
+            align-items: center; padding: 1.2rem 8%; background: rgba(6, 9, 16, 0.85);
+            backdrop-filter: blur(15px); z-index: 1000; border-bottom: 1px solid var(--glass-border);
         }
-        .logo-container { display: flex; align-items: center; gap: 10px; }
-        .logo-img { height: 32px; }
-        .logo-text { font-weight: 700; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-
-        .hero { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 100px 5% 40px; }
-        .hero h1 { font-size: 2.5rem; margin-bottom: 1.5rem; }
-        .hero h1 span { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .logo-container { display: flex; align-items: center; gap: 10px; text-decoration: none; }
+        .logo-img { height: 35px; width: auto; }
+        .logo-text { font-weight: 700; font-size: 1.2rem; background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; letter-spacing: 1px; }
         
-        .btn { padding: 1rem 2rem; border-radius: 12px; text-decoration: none; font-weight: 700; transition: 0.3s; display: inline-block; }
-        .btn-p { background: var(--gradient-main); color: #fff; }
-        .btn-s { border: 1px solid var(--glass-border); color: #fff; background: rgba(255,255,255,0.03); }
+        .nav-links { display: none; list-style: none; gap: 2.5rem; }
+        .nav-links a { text-decoration: none; color: var(--text-dim); font-size: 0.9rem; font-weight: 500; transition: 0.3s; }
+        .nav-links a:hover { color: var(--accent-blue); }
 
-        section { padding: 5rem 5%; }
-        .section-header { text-align: center; margin-bottom: 3rem; }
-        .section-header span { color: var(--accent-blue); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px; }
+        /* Hero Section */
+        .hero {
+            min-height: 100vh; display: flex; align-items: center; justify-content: space-between;
+            padding: 120px 8% 60px; gap: 4rem; flex-wrap: wrap;
+        }
+        .hero-content { flex: 1; min-width: 300px; }
+        .hero-content span { color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; }
+        .hero-content h1 { font-size: 3rem; line-height: 1.1; margin: 1.5rem 0; max-width: 600px; }
+        .hero-content h1 b { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        .hero-content p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px; }
+        .hero-image { flex: 1; min-width: 300px; border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border); }
+        .hero-image img { width: 100%; height: auto; display: block; opacity: 0.9; }
 
-        .grid-layout { display: grid; grid-template-columns: 1fr; gap: 1.5rem; }
-        .card { background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--glass-border); text-align: center; }
+        /* Buttons */
+        .btn { padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
+        .btn-p { background: var(--gradient-main); color: #fff; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25); }
+        .btn-p:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4); }
+        .btn-s { border: 1px solid var(--glass-border); color: #fff; margin-left: 1rem; }
 
-        /* Process Steps */
-        .step-card { background: rgba(255,255,255,0.02); padding: 2rem; border-radius: 20px; border: 1px solid var(--glass-border); position: relative; }
-        .step-num { width: 40px; height: 40px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1rem; font-weight: 700; }
+        /* KPI Section (Image 7) */
+        .kpi-section { display: flex; justify-content: space-around; padding: 4rem 8%; background: rgba(255,255,255,0.02); flex-wrap: wrap; gap: 2rem; border-y: 1px solid var(--glass-border); }
+        .kpi-item { text-align: center; }
+        .kpi-value { font-size: 2.5rem; font-weight: 700; font-family: 'Space Grotesk'; color: var(--accent-blue); }
+        .kpi-label { font-size: 0.75rem; color: var(--text-dim); text-transform: uppercase; letter-spacing: 1px; }
 
-        /* Projects */
-        .project-card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--glass-border); }
-        .project-img { height: 180px; background: #1e293b; display: flex; align-items: center; justify-content: center; }
-        .project-content { padding: 1.5rem; }
-        .tag { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 4px 8px; border-radius: 8px; font-size: 0.7rem; margin-right: 5px; }
+        /* Sections */
+        section { padding: 8rem 8%; }
+        .section-header { text-align: center; margin-bottom: 5rem; }
+        .section-header h2 { font-size: 2.5rem; margin-top: 0.8rem; }
 
+        /* Cards Grid */
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .card { background: var(--bg-card); padding: 3rem 2rem; border-radius: 24px; border: 1px solid var(--glass-border); transition: 0.4s; position: relative; overflow: hidden; }
+        .card:hover { border-color: var(--accent-blue); transform: translateY(-10px); background: rgba(17, 24, 39, 0.7); }
+        .card i { background: rgba(59, 130, 246, 0.1); padding: 12px; border-radius: 12px; margin-bottom: 1.5rem; display: inline-block; }
+
+        /* Process Steps (Image 11) */
+        .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
+        .step-card { text-align: center; padding: 2rem; border-radius: 20px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); }
+        .step-num { width: 45px; height: 45px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.1rem; }
+
+        /* Project Cards (Image 8 & 11) */
+        .project-card { border-radius: 30px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--glass-border); transition: 0.4s; }
+        .project-img { height: 260px; background: linear-gradient(45deg, #0f172a, #1e293b); display: flex; align-items: center; justify-content: center; }
+        .project-info { padding: 2.5rem; }
+        .tag { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-right: 8px; }
+
+        /* Contact Section */
+        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; background: var(--bg-card); padding: 4rem; border-radius: 40px; border: 1px solid var(--glass-border); }
+        .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); padding: 1.2rem; border-radius: 12px; color: #fff; margin-bottom: 1rem; font-size: 0.95rem; transition: 0.3s; }
+        .contact-form input:focus { border-color: var(--accent-blue); outline: none; }
+
+        /* Footer */
+        footer { padding: 4rem 8%; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
+
+        /* Reveal Animation */
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
-        @media (min-width: 768px) {
-            .hero h1 { font-size: 4rem; }
-            .grid-layout { grid-template-columns: repeat(3, 1fr); }
-            .process-grid { grid-template-columns: repeat(4, 1fr); }
-            .project-grid { grid-template-columns: 1fr 1fr; }
-            section { padding: 8rem 10%; }
+        /* Responsivo Celular */
+        @media (max-width: 768px) {
+            .hero { padding-top: 100px; text-align: center; justify-content: center; }
+            .hero-content h1 { font-size: 2.4rem; }
+            .hero-content p { margin: 0 auto 2rem; }
+            .btn-s { margin: 1rem 0 0 0; width: 100%; text-align: center; }
+            .btn-p { width: 100%; text-align: center; }
+            .hero-image { order: -1; }
+            .kpi-section { gap: 3rem; }
+            .nav-links { display: none; }
+            section { padding: 5rem 5%; }
+            .contact-container { padding: 2rem; }
+        }
+
+        @media (min-width: 968px) {
+            .nav-links { display: flex; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg" id="cursor-glow"></div>
+    <div class="glow-bg" id="mouse-glow"></div>
 
     <nav>
-        <div class="logo-container">
-            <img src="logo.png" alt="Logo" class="logo-img">
+        <a href="#" class="logo-container">
+            <img src="logo.png" alt="Outpost Group" class="logo-img">
             <span class="logo-text">OUTPOST GROUP</span>
-        </div>
-        <a href="#contact" class="btn btn-p" style="padding: 0.5rem 1rem; font-size: 0.8rem;">Contato</a>
+        </a>
+        <ul class="nav-links">
+            <li><a href="#about">Mindset</a></li>
+            <li><a href="#services">Serviços</a></li>
+            <li><a href="#process">Processo</a></li>
+            <li><a href="#projects">Projetos</a></li>
+        </ul>
+        <a href="#contact" class="btn btn-p" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Iniciar Projeto</a>
     </nav>
 
     <header class="hero">
-        <h1 class="reveal">Transformando Ideias em <span>Realidade Digital</span></h1>
-        <p class="reveal" style="margin-bottom: 2rem; color: var(--text-dim);">Consultoria estratégica e desenvolvimento de elite para negócios que não aceitam o comum.</p>
-        <div class="reveal">
-            <a href="#projects" class="btn btn-p">Ver Portfólio</a>
+        <div class="hero-content">
+            <span class="reveal">ESTRATÉGIA TECNOLÓGICA</span>
+            <h1 class="reveal">Soluções <b>Inteligentes</b> para Negócios Modernos</h1>
+            <p class="reveal">Transformamos sua visão em realidade através de software sob medida, arquitetura escalável e design focado no usuário.</p>
+            <div class="reveal">
+                <a href="#projects" class="btn btn-p">Ver Portfólio</a>
+                <a href="#contact" class="btn btn-s">Falar com Consultor</a>
+            </div>
+        </div>
+        <div class="hero-image reveal">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Modern Office">
         </div>
     </header>
+
+    <div class="kpi-section reveal">
+        <div class="kpi-item">
+            <div class="kpi-value">99.9%</div>
+            <div class="kpi-label">Disponibilidade</div>
+        </div>
+        <div class="kpi-item">
+            <div class="kpi-value">45+</div>
+            <div class="kpi-label">Projetos Ativos</div>
+        </div>
+        <div class="kpi-item">
+            <div class="kpi-value">100+</div>
+            <div class="kpi-label">Tecnologias</div>
+        </div>
+        <div class="kpi-item">
+            <div class="kpi-value">12k+</div>
+            <div class="kpi-label">Commits</div>
+        </div>
+    </div>
 
     <section id="about">
         <div class="section-header reveal">
             <span>NOSSO MINDSET</span>
             <h2>Inovação do Zero ao Topo</h2>
         </div>
-        <div class="grid-layout">
+        <div class="grid-3">
             <div class="card reveal">
-                <i data-lucide="target" size="48" color="#3b82f6"></i>
-                <h3 style="margin: 1rem 0;">Estratégia</h3>
+                <i data-lucide="target" color="#3b82f6"></i>
+                <h3>Estratégia</h3>
                 <p style="color: var(--text-dim); font-size: 0.9rem;">Abordamos cada desafio como um jogo de xadrez: precisão em cada movimento para garantir o sucesso a longo prazo.</p>
             </div>
             <div class="card reveal">
-                <i data-lucide="lightbulb" size="48" color="#3b82f6"></i>
-                <h3 style="margin: 1rem 0;">Inovação</h3>
+                <i data-lucide="lightbulb" color="#3b82f6"></i>
+                <h3>Inovação</h3>
                 <p style="color: var(--text-dim); font-size: 0.9rem;">Utilizamos as tecnologias mais recentes para criar soluções que colocam sua empresa à frente da concorrência.</p>
             </div>
             <div class="card reveal">
-                <i data-lucide="cpu" size="48" color="#3b82f6"></i>
-                <h3 style="margin: 1rem 0;">Tecnologia</h3>
+                <i data-lucide="cpu" color="#3b82f6"></i>
+                <h3>Tecnologia</h3>
                 <p style="color: var(--text-dim); font-size: 0.9rem;">Desenvolvimento robusto com foco em performance, segurança e escalabilidade global.</p>
             </div>
         </div>
     </section>
 
-    <section id="process" style="background: rgba(255,255,255,0.01);">
+    <section id="services" style="background: rgba(255,255,255,0.01);">
+        <div class="section-header reveal">
+            <span>O QUE FAZEMOS</span>
+            <h2>Expertise Técnica de Ponta</h2>
+        </div>
+        <div class="grid-3">
+            <div class="card reveal">
+                <i data-lucide="code-2" color="#3b82f6"></i>
+                <h3>Software Sob Medida</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Sistemas complexos desenhados especificamente para seu fluxo de trabalho único.</p>
+            </div>
+            <div class="card reveal">
+                <i data-lucide="smartphone" color="#3b82f6"></i>
+                <h3>Apps Mobile</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Experiências nativas e híbridas utilizando Flutter e tecnologias modernas.</p>
+            </div>
+            <div class="card reveal">
+                <i data-lucide="shield-check" color="#3b82f6"></i>
+                <h3>Segurança Digital</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Proteção de dados e infraestrutura contra ameaças e vazamentos.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="process">
         <div class="section-header reveal">
             <span>FLUXO DE TRABALHO</span>
             <h2>Como Transformamos sua Ideia</h2>
         </div>
-        <div class="grid-layout process-grid">
+        <div class="process-grid">
             <div class="step-card reveal">
                 <div class="step-num">1</div>
                 <h4>Discovery</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem;">Imersão total no seu negócio para entender necessidades.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Imersão total no seu negócio para entender necessidades.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">2</div>
                 <h4>Estratégia</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem;">Planejamento técnico e arquitetura da solução.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Planejamento técnico e arquitetura da solução.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">3</div>
                 <h4>Desenvolvimento</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem;">Codificação ágil com entregas incrementais.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Codificação ágil com entregas incrementais.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">4</div>
                 <h4>Entrega</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.5rem;">Lançamento, monitoramento e suporte contínuo.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Lançamento, monitoramento e suporte contínuo.</p>
             </div>
         </div>
     </section>
 
     <section id="projects">
         <div class="section-header reveal">
-            <span>CASES DE SUCESSO</span>
-            <h2>Portfólio de Elite</h2>
+            <span>CASES SELECIONADOS</span>
+            <h2>Portfólio de Impacto</h2>
         </div>
-        <div class="grid-layout project-grid">
+        <div class="grid-3" style="grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));">
             <div class="project-card reveal">
-                <div class="project-img"><i data-lucide="shield" size="40" color="#3b82f6"></i></div>
-                <div class="project-content">
-                    <span class="tag">CyberSecurity</span><span class="tag">Java</span>
-                    <h3 style="margin: 0.8rem 0;">Nexus Guard Alpha</h3>
-                    <p style="color: var(--text-dim); font-size: 0.85rem;">Infraestrutura de segurança bancária com criptografia de ponta.</p>
+                <div class="project-img"><i data-lucide="database" size="50" color="#3b82f6"></i></div>
+                <div class="project-info">
+                    <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">AWS</span>
+                    <h3 style="margin: 1rem 0;">Nexus Guard Alpha</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">Infraestrutura bancária escalável com processamento em tempo real.</p>
+                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 700; font-size: 0.85rem;">Ver Detalhes →</a>
                 </div>
             </div>
             <div class="project-card reveal">
-                <div class="project-img"><i data-lucide="zap" size="40" color="#8b5cf6"></i></div>
-                <div class="project-content">
-                    <span class="tag">SaaS</span><span class="tag">Flutter</span>
-                    <h3 style="margin: 0.8rem 0;">Velocity CRM</h3>
-                    <p style="color: var(--text-dim); font-size: 0.85rem;">Plataforma de gestão comercial focada em alta performance de vendas.</p>
+                <div class="project-img"><i data-lucide="zap" size="50" color="#8b5cf6"></i></div>
+                <div class="project-info">
+                    <span class="tag">Flutter</span><span class="tag">Node.js</span><span class="tag">MySQL</span>
+                    <h3 style="margin: 1rem 0;">Velocity CRM</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem; margin-bottom: 1.5rem;">Gestão comercial de alta performance com análise de dados inteligente.</p>
+                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 700; font-size: 0.85rem;">Ver Detalhes →</a>
                 </div>
             </div>
         </div>
     </section>
 
-    <footer style="padding: 4rem 5%; text-align: center; border-top: 1px solid var(--glass-border);">
-        <span class="logo-text">OUTPOST GROUP</span>
-        <p style="font-size: 0.8rem; color: var(--text-dim); margin-top: 1rem;">© 2026 Outpost Group. Estratégia e Precisão.</p>
+    <section id="contact">
+        <div class="contact-container reveal">
+            <div>
+                <span>CONTATO</span>
+                <h2 style="font-size: 2.8rem; margin: 1.5rem 0;">Pronto para criar algo <b>Extraordinário?</b></h2>
+                <div style="display: flex; flex-direction: column; gap: 1.5rem; margin-top: 2rem;">
+                    <p><i data-lucide="mail" style="vertical-align: middle; margin-right: 10px;"></i> contato@outpostgroup.com</p>
+                    <p><i data-lucide="map-pin" style="vertical-align: middle; margin-right: 10px;"></i> São Paulo, SP - Brasil</p>
+                </div>
+            </div>
+            <form class="contact-form">
+                <input type="text" placeholder="Nome Completo">
+                <input type="email" placeholder="E-mail Corporativo">
+                <textarea rows="5" placeholder="Como podemos ajudar no seu projeto?"></textarea>
+                <button type="submit" class="btn btn-p" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        <div class="logo-container">
+            <span class="logo-text">OUTPOST GROUP</span>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim);">© 2026 Outpost Group. Estratégia e Tecnologia de Elite.</p>
+        <div style="display: flex; gap: 1.5rem;">
+            <i data-lucide="linkedin" size="20"></i>
+            <i data-lucide="github" size="20"></i>
+        </div>
     </footer>
 
     <script>
         lucide.createIcons();
-        function reveal() {
-            var reveals = document.querySelectorAll(".reveal");
-            for (var i = 0; i < reveals.length; i++) {
-                var windowHeight = window.innerHeight;
-                var elementTop = reveals[i].getBoundingClientRect().top;
-                if (elementTop < windowHeight - 100) { reveals[i].classList.add("active"); }
-            }
-        }
-        window.addEventListener("scroll", reveal);
-        reveal();
 
-        const glow = document.getElementById('cursor-glow');
+        // Animação de Revelação ao Scroll
+        const revealElements = () => {
+            const reveals = document.querySelectorAll(".reveal");
+            reveals.forEach(el => {
+                const windowHeight = window.innerHeight;
+                const elementTop = el.getBoundingClientRect().top;
+                if (elementTop < windowHeight - 100) {
+                    el.classList.add("active");
+                }
+            });
+        };
+        window.addEventListener("scroll", revealElements);
+        revealElements(); // Rodar no load
+
+        // Brilho que segue o Mouse (Apenas Desktop)
+        const glow = document.getElementById('mouse-glow');
         window.addEventListener('mousemove', (e) => {
             if (window.innerWidth > 768) {
-                glow.style.left = e.clientX - 150 + 'px';
-                glow.style.top = e.clientY - 150 + 'px';
+                glow.style.transform = `translate(${e.clientX - 200}px, ${e.clientY - 200}px)`;
             }
         });
     </script>
 </body>
-</html>
+            </html>
