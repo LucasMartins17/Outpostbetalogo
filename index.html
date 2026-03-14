@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>TechConsult | Soluções Tecnológicas Estratégicas</title>
+    <title>Outpost Group | Soluções Tecnológicas</title>
     <script src="https://unpkg.com/lucide@latest"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
     <style>
@@ -30,25 +30,25 @@
             background-color: var(--bg-deep);
             color: var(--text-main);
             overflow-x: hidden;
-            line-height: 1.6;
+            line-height: 1.5;
         }
 
-        h1, h2, h3, .logo {
+        h1, h2, h3, .logo-text {
             font-family: 'Space Grotesk', sans-serif;
         }
 
-        /* Efeitos de Fundo */
+        /* Glows */
         .glow-bg {
             position: fixed;
-            width: 600px;
-            height: 600px;
-            background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, rgba(139, 92, 246, 0.05) 50%, transparent 100%);
+            width: 300px;
+            height: 300px;
+            background: radial-gradient(circle, rgba(59, 130, 246, 0.15) 0%, transparent 70%);
             z-index: -1;
-            filter: blur(80px);
+            filter: blur(60px);
             pointer-events: none;
         }
 
-        /* Navigation */
+        /* Navigation Mobile Optimized */
         nav {
             position: fixed;
             top: 0;
@@ -56,81 +56,49 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 1.2rem 8%;
-            background: rgba(11, 15, 26, 0.8);
-            backdrop-filter: blur(15px);
+            padding: 1rem 5%;
+            background: rgba(11, 15, 26, 0.9);
+            backdrop-filter: blur(10px);
             z-index: 1000;
             border-bottom: 1px solid var(--glass-border);
         }
 
-        .logo-box {
+        .logo-container {
             display: flex;
             align-items: center;
-            gap: 10px;
-            font-size: 1.4rem;
+            gap: 8px;
+        }
+
+        .logo-img {
+            height: 32px;
+            width: auto;
+        }
+
+        .logo-text {
             font-weight: 700;
+            font-size: 1.1rem;
             background: var(--gradient-main);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        .nav-links {
-            display: flex;
-            gap: 2.5rem;
-            list-style: none;
-        }
+        .nav-links { display: none; } /* Mobile first: oculta links */
 
-        .nav-links a {
-            text-decoration: none;
-            color: var(--text-dim);
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: 0.3s;
-        }
-
-        .nav-links a:hover {
-            color: var(--accent-blue);
-        }
-
-        .btn-nav {
-            padding: 0.6rem 1.5rem;
-            background: var(--gradient-main);
-            color: white;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            box-shadow: 0 4px 15px rgba(59, 130, 246, 0.3);
-        }
-
-        /* Hero Section */
+        /* Hero Section Mobile Optimized */
         .hero {
-            height: 100vh;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
             text-align: center;
-            padding: 0 10%;
-            background: radial-gradient(circle at center, rgba(139, 92, 246, 0.05) 0%, transparent 70%);
-        }
-
-        .knight-icon {
-            margin-bottom: 2rem;
-            filter: drop-shadow(0 0 20px rgba(59, 130, 246, 0.5));
-            animation: float 4s ease-in-out infinite;
-        }
-
-        @keyframes float {
-            0%, 100% { transform: translateY(0); }
-            50% { transform: translateY(-15px); }
+            padding: 80px 5% 40px;
         }
 
         .hero h1 {
-            font-size: 4.5rem;
-            max-width: 900px;
-            margin-bottom: 1.5rem;
-            line-height: 1.1;
+            font-size: 2.2rem;
+            line-height: 1.2;
+            margin-bottom: 1rem;
         }
 
         .hero h1 span {
@@ -140,448 +108,196 @@
         }
 
         .hero p {
+            font-size: 0.95rem;
             color: var(--text-dim);
-            max-width: 600px;
-            font-size: 1.1rem;
-            margin-bottom: 2.5rem;
+            margin-bottom: 2rem;
+            max-width: 100%;
         }
 
-        .hero-btns {
+        .btn-group {
             display: flex;
-            gap: 1.5rem;
+            flex-direction: column;
+            gap: 1rem;
+            width: 100%;
         }
 
-        .btn-main {
-            padding: 1rem 2.5rem;
+        .btn {
+            padding: 1rem;
             border-radius: 12px;
             text-decoration: none;
             font-weight: 700;
-            transition: 0.4s;
-        }
-
-        .btn-primary {
-            background: var(--gradient-main);
-            color: white;
-            box-shadow: 0 10px 25px rgba(59, 130, 246, 0.3);
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 35px rgba(59, 130, 246, 0.5);
-        }
-
-        .btn-secondary {
-            border: 1px solid var(--glass-border);
-            color: white;
-            background: rgba(255, 255, 255, 0.03);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.08);
-        }
-
-        /* Sections General */
-        section {
-            padding: 8rem 10%;
-        }
-
-        .section-header {
             text-align: center;
-            margin-bottom: 4rem;
+            font-size: 0.9rem;
         }
 
-        .section-header span {
-            color: var(--accent-blue);
-            text-transform: uppercase;
-            font-size: 0.8rem;
-            letter-spacing: 2px;
-            font-weight: 700;
-        }
+        .btn-p { background: var(--gradient-main); color: #fff; }
+        .btn-s { border: 1px solid var(--glass-border); color: #fff; background: rgba(255,255,255,0.03); }
 
-        .section-header h2 {
-            font-size: 2.5rem;
-            margin-top: 0.5rem;
-        }
+        /* Sections */
+        section { padding: 4rem 5%; }
 
-        /* Innovation Mindset Cards */
-        .about-grid {
+        .section-header { margin-bottom: 2.5rem; text-align: center; }
+        .section-header h2 { font-size: 1.8rem; margin-top: 0.5rem; }
+
+        /* Grid Adjustments for Mobile */
+        .grid-layout {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 2rem;
-        }
-
-        .about-card {
-            background: var(--bg-card);
-            padding: 3rem 2rem;
-            border-radius: 20px;
-            border: 1px solid var(--glass-border);
-            text-align: center;
-            transition: 0.4s;
-        }
-
-        .about-card:hover {
-            border-color: var(--accent-blue);
-            transform: translateY(-10px);
-            background: rgba(17, 24, 39, 0.9);
-        }
-
-        .about-card i {
-            color: var(--accent-blue);
-            margin-bottom: 1.5rem;
-        }
-
-        /* Services Grid */
-        .services-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            grid-template-columns: 1fr;
             gap: 1.5rem;
         }
 
-        .service-card {
+        .card {
             background: var(--bg-card);
-            padding: 2rem;
-            border-radius: 16px;
+            padding: 2rem 1.5rem;
+            border-radius: 20px;
             border: 1px solid var(--glass-border);
-            transition: 0.3s;
-        }
-
-        .service-card:hover {
-            border-color: var(--accent-purple);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
-        }
-
-        .service-card h3 {
-            margin: 1rem 0;
-            font-size: 1.2rem;
-        }
-
-        .service-card p {
-            font-size: 0.9rem;
-            color: var(--text-dim);
         }
 
         /* Process Steps */
-        .process-container {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 1rem;
-            position: relative;
-        }
-
         .step-card {
-            text-align: center;
-            position: relative;
-            padding: 2rem;
+            padding: 1.5rem;
+            border-left: 3px solid var(--accent-blue);
+            background: rgba(255,255,255,0.02);
+            margin-bottom: 1rem;
         }
 
-        .step-num {
-            width: 50px;
-            height: 50px;
-            background: var(--gradient-main);
-            border-radius: 50%;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0 auto 1.5rem;
-            font-weight: 700;
-        }
-
-        /* Project Cards */
-        .project-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 2.5rem;
-        }
-
+        /* Projects */
         .project-card {
             background: var(--bg-card);
-            border-radius: 24px;
+            border-radius: 20px;
             overflow: hidden;
             border: 1px solid var(--glass-border);
         }
 
-        .project-img {
-            height: 250px;
-            background: linear-gradient(45deg, #1e293b, #0f172a);
+        .project-img-placeholder {
+            height: 180px;
+            background: #1e293b;
             display: flex;
             align-items: center;
             justify-content: center;
-            position: relative;
         }
 
-        .project-content {
-            padding: 2rem;
-        }
+        .project-info { padding: 1.5rem; }
 
-        .tag {
-            background: rgba(59, 130, 246, 0.1);
-            color: var(--accent-blue);
-            padding: 4px 12px;
-            border-radius: 20px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            margin-right: 8px;
-        }
-
-        /* Contact Section */
-        .contact-container {
-            display: grid;
-            grid-template-columns: 1fr 1.2fr;
-            gap: 4rem;
-            background: var(--bg-card);
-            padding: 4rem;
-            border-radius: 30px;
-            border: 1px solid var(--glass-border);
-        }
-
+        /* Form */
         .contact-form input, .contact-form textarea {
             width: 100%;
-            background: rgba(255, 255, 255, 0.05);
+            background: rgba(255,255,255,0.05);
             border: 1px solid var(--glass-border);
             padding: 1rem;
             border-radius: 10px;
-            color: white;
-            margin-bottom: 1.2rem;
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1rem;
         }
 
-        /* Footer */
         footer {
-            padding: 4rem 10%;
+            padding: 3rem 5%;
+            text-align: center;
             border-top: 1px solid var(--glass-border);
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
         }
 
-        /* Mobile Responsive */
-        @media (max-width: 968px) {
-            h1 { font-size: 2.8rem; }
-            .hero { padding-top: 100px; }
-            .about-grid, .process-container, .project-grid, .contact-container {
-                grid-template-columns: 1fr;
-            }
-            nav .nav-links { display: none; }
+        /* Tablet/Desktop overrides */
+        @media (min-width: 768px) {
+            .nav-links { display: flex; list-style: none; gap: 2rem; }
+            .hero h1 { font-size: 4rem; }
+            .btn-group { flex-direction: row; justify-content: center; width: auto; }
+            .grid-layout { grid-template-columns: repeat(3, 1fr); }
+            .project-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
-    <div class="glow-bg" style="top: 10%; left: -10%;"></div>
-    <div class="glow-bg" style="bottom: 10%; right: -10%; opacity: 0.1;"></div>
-
+    <div class="glow-bg" style="top: 0; right: 0;"></div>
+    
     <nav>
-        <div class="logo-box">
-            <i data-lucide="ghost"></i> TECHCONSULT
+        <div class="logo-container">
+            <img src="logo.png" alt="Outpost Group Logo" class="logo-img">
+            <span class="logo-text">OUTPOST GROUP</span>
         </div>
         <ul class="nav-links">
-            <li><a href="#about">Empresa</a></li>
-            <li><a href="#services">Serviços</a></li>
-            <li><a href="#projects">Casos</a></li>
-            <li><a href="#contact">Contato</a></li>
+            <li><a href="#services" style="color: var(--text-dim); text-decoration: none;">Serviços</a></li>
+            <li><a href="#projects" style="color: var(--text-dim); text-decoration: none;">Projetos</a></li>
+            <li><a href="#contact" style="color: var(--text-dim); text-decoration: none;">Contato</a></li>
         </ul>
-        <a href="#contact" class="btn-nav">Começar Projeto</a>
+        <i data-lucide="menu" class="mobile-menu-icon" style="color: var(--accent-blue)"></i>
     </nav>
 
     <header class="hero">
-        <div class="knight-icon">
-            <svg width="80" height="80" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                <defs>
-                    <linearGradient id="knightGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                        <stop offset="0%" style="stop-color:#3b82f6" />
-                        <stop offset="100%" style="stop-color:#8b5cf6" />
-                    </linearGradient>
-                </defs>
-                <path d="M11 18H14H18V22H6V18H7C7 18 6 12 8 8C10 4 14 4 15 4C16 4 17 5 17 6V10C17 11 16 12 15 12H13C13 12 14 14 12 15C10 16 11 18 11 18Z" stroke="url(#knightGradient)" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-            </svg>
-        </div>
-        <span>CONSULTORIA TECNOLÓGICA ESTRATÉGICA</span>
-        <h1>Soluções em <span>Tecnologia Estratégica</span> para Negócios Modernos</h1>
-        <p>Transformamos empresas através de software sob medida, inteligência de dados e arquitetura de nuvem escalável.</p>
-        <div class="hero-btns">
-            <a href="#projects" class="btn-main btn-primary">Ver Projetos</a>
-            <a href="#contact" class="btn-main btn-secondary">Falar com Consultor</a>
+        <h1 style="margin-bottom: 0.5rem;">Estratégia & <span>Tecnologia</span></h1>
+        <p>Soluções tecnológicas avançadas para empresas que buscam impacto e escalabilidade.</p>
+        <div class="btn-group">
+            <a href="#contact" class="btn btn-p">Iniciar Projeto</a>
+            <a href="#services" class="btn btn-s">Nossos Serviços</a>
         </div>
     </header>
 
-    <section id="about">
+    <section id="services">
         <div class="section-header">
-            <span>NOSSO MINDSET</span>
-            <h2>Inovação do Zero ao Topo</h2>
+            <h2 style="font-size: 1.5rem; color: var(--accent-blue);">Expertise</h2>
+            <h2>Nossos Serviços</h2>
         </div>
-        <div class="about-grid">
-            <div class="about-card">
-                <i data-lucide="target" size="48"></i>
-                <h3>Estratégia</h3>
-                <p>Abordamos cada desafio como um jogo de xadrez: precisão em cada movimento para garantir o sucesso a longo prazo.</p>
+        <div class="grid-layout">
+            <div class="card">
+                <i data-lucide="code" color="#3b82f6" style="margin-bottom: 1rem;"></i>
+                <h3>Desenvolvimento</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Sistemas sob medida e aplicações robustas para web e mobile.</p>
             </div>
-            <div class="about-card">
-                <i data-lucide="lightbulb" size="48"></i>
-                <h3>Inovação</h3>
-                <p>Utilizamos as tecnologias mais recentes para criar soluções que colocam sua empresa à frente da concorrência.</p>
+            <div class="card">
+                <i data-lucide="layers" color="#3b82f6" style="margin-bottom: 1rem;"></i>
+                <h3>Integrações</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Conectamos seus processos com as melhores tecnologias do mercado.</p>
             </div>
-            <div class="about-card">
-                <i data-lucide="cpu" size="48"></i>
-                <h3>Tecnologia</h3>
-                <p>Desenvolvimento robusto com foco em performance, segurança e escalabilidade global.</p>
+            <div class="card">
+                <i data-lucide="shield-check" color="#3b82f6" style="margin-bottom: 1rem;"></i>
+                <h3>Consultoria</h3>
+                <p style="color: var(--text-dim); font-size: 0.9rem;">Estratégia tecnológica focada em segurança e alta performance.</p>
             </div>
         </div>
     </section>
 
-    <section id="services" style="background: rgba(255,255,255,0.01);">
+    <section id="process" style="background: rgba(255,255,255,0.01)">
         <div class="section-header">
-            <span>SERVIÇOS</span>
-            <h2>Expertise Técnica de Ponta</h2>
+            <h2>Nosso Processo</h2>
         </div>
-        <div class="services-grid">
-            <div class="service-card">
-                <i data-lucide="code-2" color="#3b82f6"></i>
-                <h3>Software Sob Medida</h3>
-                <p>Sistemas empresariais complexos desenhados especificamente para seu fluxo de trabalho.</p>
-            </div>
-            <div class="service-card">
-                <i data-lucide="layout" color="#3b82f6"></i>
-                <h3>Web Applications</h3>
-                <p>Interfaces modernas e sistemas web de alto desempenho com React e Node.js.</p>
-            </div>
-            <div class="service-card">
-                <i data-lucide="smartphone" color="#3b82f6"></i>
-                <h3>Apps Mobile</h3>
-                <p>Experiências nativas e híbridas fluidas utilizando Flutter e React Native.</p>
-            </div>
-            <div class="service-card">
-                <i data-lucide="layers" color="#3b82f6"></i>
-                <h3>Integração de Sistemas</h3>
-                <p>Conectamos suas ferramentas legadas com as novas tecnologias de forma transparente.</p>
-            </div>
-            <div class="service-card">
-                <i data-lucide="shield-check" color="#3b82f6"></i>
-                <h3>Segurança Digital</h3>
-                <p>Proteção de dados e infraestrutura contra ameaças modernas e vazamentos.</p>
-            </div>
-            <div class="service-card">
-                <i data-lucide="cloud" color="#3b82f6"></i>
-                <h3>Cloud & DevOps</h3>
-                <p>Migração e gerenciamento em AWS e Google Cloud para máxima disponibilidade.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="process">
-        <div class="section-header">
-            <span>FLUXO DE TRABALHO</span>
-            <h2>Como Transformamos sua Ideia</h2>
-        </div>
-        <div class="process-container">
+        <div class="process-list">
             <div class="step-card">
-                <div class="step-num">1</div>
-                <h4>Discovery</h4>
-                <p>Imersão total no seu negócio para entender necessidades.</p>
+                <strong>01. Descoberta</strong>
+                <p style="font-size: 0.85rem; color: var(--text-dim)">Análise profunda das metas do seu negócio.</p>
             </div>
             <div class="step-card">
-                <div class="step-num">2</div>
-                <h4>Estratégia</h4>
-                <p>Planejamento técnico e arquitetura da solução.</p>
+                <strong>02. Desenvolvimento</strong>
+                <p style="font-size: 0.85rem; color: var(--text-dim)">Construção ágil com foco em qualidade.</p>
             </div>
             <div class="step-card">
-                <div class="step-num">3</div>
-                <h4>Desenvolvimento</h4>
-                <p>Codificação ágil com entregas incrementais.</p>
-            </div>
-            <div class="step-card">
-                <div class="step-num">4</div>
-                <h4>Entrega</h4>
-                <p>Lançamento, monitoramento e suporte contínuo.</p>
-            </div>
-        </div>
-    </section>
-
-    <section id="projects">
-        <div class="section-header">
-            <span>PORTFÓLIO</span>
-            <h2>Projetos Selecionados</h2>
-        </div>
-        <div class="project-grid">
-            <div class="project-card">
-                <div class="project-img">
-                    <i data-lucide="banknote" size="64" color="#3b82f6"></i>
-                </div>
-                <div class="project-content">
-                    <div style="margin-bottom: 1rem;">
-                        <span class="tag">Java</span><span class="tag">Spring</span><span class="tag">AWS</span>
-                    </div>
-                    <h3>Fintech Dashboard</h3>
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Plataforma bancária de alta segurança para processamento de transações internacionais.</p>
-                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">Ver Estudo de Caso →</a>
-                </div>
-            </div>
-            <div class="project-card">
-                <div class="project-img">
-                    <i data-lucide="shopping-bag" size="64" color="#8b5cf6"></i>
-                </div>
-                <div class="project-content">
-                    <div style="margin-bottom: 1rem;">
-                        <span class="tag">Flutter</span><span class="tag">Node.js</span><span class="tag">MySQL</span>
-                    </div>
-                    <h3>E-commerce Global</h3>
-                    <p style="color: var(--text-dim); margin-bottom: 1.5rem;">Aplicativo mobile com sistema de logística integrada e pagamentos múltiplos.</p>
-                    <a href="#" style="color: var(--accent-blue); text-decoration: none; font-weight: 600;">Ver Estudo de Caso →</a>
-                </div>
+                <strong>03. Entrega</strong>
+                <p style="font-size: 0.85rem; color: var(--text-dim)">Lançamento estratégico e suporte dedicado.</p>
             </div>
         </div>
     </section>
 
     <section id="contact">
-        <div class="contact-container">
-            <div>
-                <span>CONTATO</span>
-                <h2 style="font-size: 3rem; margin-bottom: 2rem;">Pronto para criar algo <span>Extraordinário?</span></h2>
-                <div style="display: flex; flex-direction: column; gap: 1.5rem;">
-                    <p><i data-lucide="mail"></i> contato@techconsult.com</p>
-                    <p><i data-lucide="phone"></i> +55 11 99999-9999</p>
-                    <p><i data-lucide="map-pin"></i> São Paulo, SP - Brasil</p>
-                </div>
-            </div>
-            <form class="contact-form">
-                <input type="text" placeholder="Nome Completo">
-                <input type="email" placeholder="E-mail Corporativo">
-                <input type="text" placeholder="Empresa">
-                <textarea rows="5" placeholder="Como podemos ajudar no seu projeto?"></textarea>
-                <button type="submit" class="btn-main btn-primary" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
-            </form>
+        <div class="section-header">
+            <h2>Vamos Conversar?</h2>
         </div>
+        <form class="contact-form">
+            <input type="text" placeholder="Nome">
+            <input type="email" placeholder="E-mail">
+            <textarea rows="4" placeholder="Sua Mensagem"></textarea>
+            <button type="submit" class="btn btn-p" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+        </form>
     </section>
 
     <footer>
-        <div class="logo-box">TECHCONSULT</div>
-        <p style="font-size: 0.8rem; color: var(--text-dim);">© 2026 TechConsult. Estratégia e Tecnologia.</p>
-        <div style="display: flex; gap: 1.5rem;">
-            <i data-lucide="linkedin" size="20"></i>
-            <i data-lucide="github" size="20"></i>
-            <i data-lucide="twitter" size="20"></i>
+        <div class="logo-container" style="justify-content: center; margin-bottom: 1rem;">
+            <span class="logo-text">OUTPOST GROUP</span>
         </div>
+        <p style="font-size: 0.8rem; color: var(--text-dim)">© 2026 Outpost Group. Todos os direitos reservados.</p>
     </footer>
 
     <script>
-        // Inicializa os ícones do Lucide
         lucide.createIcons();
-
-        // Animação simples de scroll para revelar elementos
-        const observerOptions = { threshold: 0.1 };
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = "1";
-                    entry.target.style.transform = "translateY(0)";
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.service-card, .about-card, .project-card').forEach(el => {
-            el.style.opacity = "0";
-            el.style.transform = "translateY(30px)";
-            el.style.transition = "all 0.6s ease-out";
-            observer.observe(el);
-        });
     </script>
 </body>
-    </html>
+</html>
