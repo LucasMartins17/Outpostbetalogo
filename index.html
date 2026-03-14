@@ -48,13 +48,13 @@
         }
         .hero-content { flex: 1; min-width: 300px; }
         .hero-content span { color: var(--accent-blue); font-weight: 700; font-size: 0.85rem; letter-spacing: 2px; }
-        .hero-content h1 { font-size: 3rem; line-height: 1.1; margin: 1.5rem 0; max-width: 600px; }
+        .hero-content h1 { font-size: 3.5rem; line-height: 1.1; margin: 1.5rem 0; max-width: 600px; }
         .hero-content h1 b { background: var(--gradient-main); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
         .hero-content p { color: var(--text-dim); font-size: 1.1rem; margin-bottom: 2.5rem; max-width: 500px; }
         .hero-image { flex: 1; min-width: 300px; border-radius: 24px; overflow: hidden; border: 1px solid var(--glass-border); }
         .hero-image img { width: 100%; height: auto; display: block; opacity: 0.9; }
 
-        .btn { padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; }
+        .btn { padding: 1rem 2.2rem; border-radius: 12px; text-decoration: none; font-weight: 700; display: inline-block; transition: 0.4s; border: none; cursor: pointer; text-align: center; }
         .btn-p { background: var(--gradient-main); color: #fff; box-shadow: 0 10px 25px rgba(59, 130, 246, 0.25); }
         .btn-p:hover { transform: translateY(-3px); box-shadow: 0 15px 35px rgba(59, 130, 246, 0.4); }
         .btn-s { border: 1px solid var(--glass-border); color: #fff; margin-left: 1rem; }
@@ -66,46 +66,65 @@
 
         section { padding: 8rem 8%; }
         
-        /* Updated Services Header */
-        .services-header { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
-        .services-header-text { max-width: 500px; }
-        .services-header h2 { font-size: 2.5rem; margin-bottom: 1rem; }
-        .services-header p { color: var(--text-dim); }
-        .view-all { color: var(--accent-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
-        .view-all:hover { gap: 12px; opacity: 0.8; }
+        .section-header-flex { display: flex; justify-content: space-between; align-items: flex-end; margin-bottom: 4rem; flex-wrap: wrap; gap: 2rem; }
+        .header-text-block { max-width: 550px; }
+        .section-header-flex h2 { font-size: 2.8rem; margin-bottom: 1rem; }
+        .section-header-flex p { color: var(--text-dim); font-size: 1.05rem; }
+        .view-link { color: var(--accent-blue); text-decoration: none; font-weight: 600; font-size: 0.9rem; display: flex; align-items: center; gap: 8px; transition: 0.3s; }
+        .view-link:hover { gap: 12px; opacity: 0.8; }
 
         .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5rem; }
+        
+        /* Service Cards */
         .card { background: var(--bg-card); padding: 2.5rem; border-radius: 20px; border: 1px solid var(--glass-border); transition: 0.4s; position: relative; }
         .card:hover { border-color: var(--accent-blue); transform: translateY(-8px); background: rgba(17, 24, 39, 0.6); }
         .card i { margin-bottom: 1.5rem; display: block; color: var(--accent-blue); }
         .card h3 { margin-bottom: 1rem; font-size: 1.25rem; }
         .card p { color: var(--text-dim); font-size: 0.9rem; line-height: 1.5; }
 
+        /* Process Grid */
         .process-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 1rem; }
-        .step-card { text-align: center; padding: 2rem; border-radius: 20px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); }
-        .step-num { width: 45px; height: 45px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.1rem; }
+        .step-card { text-align: center; padding: 2.5rem 2rem; border-radius: 24px; background: rgba(255,255,255,0.01); border: 1px solid var(--glass-border); transition: 0.3s; }
+        .step-card:hover { background: rgba(255,255,255,0.03); border-color: var(--accent-blue); }
+        .step-num { width: 50px; height: 50px; background: var(--gradient-main); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 1.5rem; font-weight: 700; font-size: 1.2rem; box-shadow: 0 10px 20px rgba(59, 130, 246, 0.2); }
 
+        /* Project Cards */
         .project-card { border-radius: 30px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--glass-border); transition: 0.4s; }
-        .project-img { height: 260px; background: linear-gradient(45deg, #0f172a, #1e293b); display: flex; align-items: center; justify-content: center; }
-        .project-info { padding: 2.5rem; }
+        .project-card:hover { border-color: var(--accent-blue); transform: translateY(-8px); }
+        .project-img { height: 240px; background: linear-gradient(45deg, #0f172a, #1e293b); display: flex; align-items: center; justify-content: center; position: relative; }
+        .project-info { padding: 2rem; }
         .tag { background: rgba(59, 130, 246, 0.1); color: var(--accent-blue); padding: 5px 12px; border-radius: 20px; font-size: 0.7rem; font-weight: 700; margin-right: 8px; }
 
-        .contact-container { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 4rem; background: var(--bg-card); padding: 4rem; border-radius: 40px; border: 1px solid var(--glass-border); }
-        .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); padding: 1.2rem; border-radius: 12px; color: #fff; margin-bottom: 1rem; font-size: 0.95rem; }
+        /* Contact Optimized */
+        .contact-container { display: grid; grid-template-columns: 1fr 1.2fr; gap: 5rem; background: var(--bg-card); padding: 5rem; border-radius: 40px; border: 1px solid var(--glass-border); align-items: center; }
+        .contact-text h2 { font-size: 3rem; margin-bottom: 1.5rem; line-height: 1.2; }
+        .contact-info-item { display: flex; align-items: center; gap: 15px; margin-top: 2rem; color: var(--text-dim); }
+        
+        .contact-form { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+        .contact-form .full-width { grid-column: span 2; }
+        .contact-form input, .contact-form textarea { width: 100%; background: rgba(255,255,255,0.04); border: 1px solid var(--glass-border); padding: 1.2rem; border-radius: 12px; color: #fff; font-size: 0.95rem; transition: 0.3s; }
+        .contact-form input:focus, .contact-form textarea:focus { border-color: var(--accent-blue); outline: none; background: rgba(255,255,255,0.08); }
 
         footer { padding: 4rem 8%; border-top: 1px solid var(--glass-border); display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 2rem; }
 
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
 
+        @media (max-width: 968px) {
+            .contact-container { grid-template-columns: 1fr; padding: 3rem; gap: 3rem; }
+            .contact-form { grid-template-columns: 1fr; }
+            .contact-form .full-width { grid-column: span 1; }
+        }
+
         @media (max-width: 768px) {
             .hero { padding-top: 100px; text-align: center; }
-            .hero-content h1 { font-size: 2.4rem; }
+            .hero-content h1 { font-size: 2.8rem; }
             .btn-s { margin: 1rem 0 0 0; width: 100%; }
             .btn-p { width: 100%; }
             .hero-image { order: -1; }
             section { padding: 5rem 5%; }
-            .services-header { text-align: left; align-items: flex-start; }
+            .section-header-flex { text-align: left; align-items: flex-start; }
+            .contact-text h2 { font-size: 2.2rem; }
         }
 
         @media (min-width: 968px) { .nav-links { display: flex; } }
@@ -124,9 +143,10 @@
             <li><a href="#about">Mindset</a></li>
             <li><a href="#services">Serviços</a></li>
             <li><a href="#process">Processo</a></li>
-            <li><a href="#projects">Projetos</a></li>
+            <li><a href="#projects">Portfólio</a></li>
+            <li><a href="#contact">Contato</a></li>
         </ul>
-        <a href="#contact" class="btn btn-p" style="padding: 0.6rem 1.4rem; font-size: 0.85rem;">Iniciar Projeto</a>
+        <div style="width: 20px;"></div>
     </nav>
 
     <header class="hero">
@@ -140,7 +160,7 @@
             </div>
         </div>
         <div class="hero-image reveal">
-            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Modern Office">
+            <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?auto=format&fit=crop&q=80&w=800" alt="Escritório Moderno">
         </div>
     </header>
 
@@ -164,96 +184,100 @@
     </div>
 
     <section id="services">
-        <div class="services-header reveal">
-            <div class="services-header-text">
-                <h2>Our Services</h2>
-                <p>Comprehensive suite of digital services designed to accelerate your growth and operational efficiency.</p>
+        <div class="section-header-flex reveal">
+            <div class="header-text-block">
+                <h2>Nossos Serviços</h2>
+                <p>Suíte completa de serviços digitais focada em acelerar seu crescimento e eficiência operacional.</p>
             </div>
-            <a href="#" class="view-all">View All Services <i data-lucide="arrow-right" size="18"></i></a>
+            <a href="#" class="view-link">Ver Todos <i data-lucide="arrow-right" size="18"></i></a>
         </div>
         <div class="grid-3">
             <div class="card reveal">
                 <i data-lucide="code-2" size="32"></i>
-                <h3>Custom Software</h3>
-                <p>Tailored backend systems and enterprise applications built from the ground up.</p>
+                <h3>Software Sob Medida</h3>
+                <p>Sistemas personalizados e aplicações corporativas construídas do zero para sua necessidade específica.</p>
             </div>
             <div class="card reveal">
                 <i data-lucide="layout" size="32"></i>
-                <h3>Web Apps</h3>
-                <p>Scalable, high-performance web platforms using modern frameworks and responsive design.</p>
+                <h3>Aplicações Web</h3>
+                <p>Plataformas web escaláveis de alta performance com frameworks modernos e total responsividade.</p>
             </div>
             <div class="card reveal">
                 <i data-lucide="smartphone" size="32"></i>
-                <h3>Mobile Apps</h3>
-                <p>Native and cross-platform mobile experiences for iOS and Android devices.</p>
-            </div>
-            <div class="card reveal">
-                <i data-lucide="user-cog" size="32"></i>
-                <h3>IT Consulting</h3>
-                <p>Expert guidance on technology stack selection and digital transformation strategy.</p>
-            </div>
-            <div class="card reveal">
-                <i data-lucide="share-2" size="32"></i>
-                <h3>Integration</h3>
-                <p>Seamless connection of third-party tools and legacy systems into a unified workflow.</p>
-            </div>
-            <div class="card reveal">
-                <i data-lucide="wand-2" size="32"></i>
-                <h3>Digital Transformation</h3>
-                <p>Modernizing business processes through cloud adoption and automation.</p>
+                <h3>Apps Mobile</h3>
+                <p>Experiências nativas e híbridas de alto nível para dispositivos iOS e Android.</p>
             </div>
         </div>
     </section>
 
     <section id="process" style="background: rgba(255,255,255,0.01);">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-            <span>FLUXO DE TRABALHO</span>
-            <h2 style="font-size: 2.5rem; margin-top: 1rem;">Como Transformamos sua Ideia</h2>
+        <div class="section-header-flex reveal" style="justify-content: center; text-align: center;">
+            <div class="header-text-block">
+                <span style="color: var(--accent-blue); font-weight: 700; font-size: 0.8rem; letter-spacing: 2px;">WORKFLOW</span>
+                <h2 style="margin-top: 1rem;">Como Transformamos sua Ideia</h2>
+            </div>
         </div>
         <div class="process-grid">
             <div class="step-card reveal">
                 <div class="step-num">1</div>
                 <h4>Discovery</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Imersão total no seu negócio para entender necessidades.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Imersão total no seu negócio para entender os desafios reais e objetivos.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">2</div>
                 <h4>Estratégia</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Planejamento técnico e arquitetura da solução.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Planejamento técnico detalhado e definição da arquitetura ideal.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">3</div>
                 <h4>Desenvolvimento</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Codificação ágil com entregas incrementais.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Codificação ágil com foco em qualidade técnica e entregas incrementais.</p>
             </div>
             <div class="step-card reveal">
                 <div class="step-num">4</div>
                 <h4>Entrega</h4>
-                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Lançamento, monitoramento e suporte contínuo.</p>
+                <p style="color: var(--text-dim); font-size: 0.85rem; margin-top: 0.8rem;">Lançamento oficial, monitoramento de performance e suporte contínuo.</p>
             </div>
         </div>
     </section>
 
     <section id="projects">
-        <div class="section-header reveal" style="text-align: center; margin-bottom: 4rem;">
-            <span>CASES SELECIONADOS</span>
-            <h2 style="font-size: 2.5rem; margin-top: 1rem;">Portfólio de Impacto</h2>
+        <div class="section-header-flex reveal">
+            <div class="header-text-block">
+                <h2>Cases de Impacto</h2>
+                <p>Projetos selecionados que demonstram nossa capacidade de entrega e inovação técnica.</p>
+            </div>
+            <a href="#" class="view-link">Ver Portfólio Completo <i data-lucide="arrow-right" size="18"></i></a>
         </div>
         <div class="grid-3">
             <div class="project-card reveal">
-                <div class="project-img"><i data-lucide="database" size="50" color="#3b82f6"></i></div>
+                <div class="project-img">
+                    <i data-lucide="shield-check" size="50" color="#3b82f6"></i>
+                </div>
                 <div class="project-info">
                     <span class="tag">Java</span><span class="tag">Spring</span>
                     <h3 style="margin: 1rem 0;">Nexus Guard Alpha</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Infraestrutura bancária escalável com processamento em tempo real.</p>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Segurança bancária escalável com processamento massivo em tempo real.</p>
                 </div>
             </div>
             <div class="project-card reveal">
-                <div class="project-img"><i data-lucide="zap" size="50" color="#8b5cf6"></i></div>
+                <div class="project-img">
+                    <i data-lucide="leaf" size="50" color="#10b981"></i>
+                </div>
+                <div class="project-info">
+                    <span class="tag">PHP</span><span class="tag">MySQL</span><span class="tag">Social</span>
+                    <h3 style="margin: 1rem 0;">Campos Justos</h3>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Solução logística inteligente para combate ao desperdício de alimentos.</p>
+                </div>
+            </div>
+            <div class="project-card reveal">
+                <div class="project-img">
+                    <i data-lucide="zap" size="50" color="#8b5cf6"></i>
+                </div>
                 <div class="project-info">
                     <span class="tag">Flutter</span><span class="tag">Node.js</span>
                     <h3 style="margin: 1rem 0;">Velocity CRM</h3>
-                    <p style="color: var(--text-dim); font-size: 0.9rem;">Gestão comercial de alta performance com análise de dados inteligente.</p>
+                    <p style="color: var(--text-dim); font-size: 0.9rem;">Plataforma comercial de alta performance com análise preditiva.</p>
                 </div>
             </div>
         </div>
@@ -261,16 +285,24 @@
 
     <section id="contact">
         <div class="contact-container reveal">
-            <div>
-                <span>CONTATO</span>
-                <h2 style="font-size: 2.8rem; margin: 1.5rem 0;">Pronto para criar algo <b>Extraordinário?</b></h2>
-                <p><i data-lucide="mail"></i> contato@outpostgroup.com</p>
+            <div class="contact-text">
+                <span>VAMOS CONVERSAR</span>
+                <h2>Pronto para criar algo <b>Extraordinário?</b></h2>
+                <div class="contact-info-item">
+                    <i data-lucide="mail" color="#3b82f6"></i>
+                    <span>contato@outpostgroup.com</span>
+                </div>
+                <div class="contact-info-item">
+                    <i data-lucide="map-pin" color="#3b82f6"></i>
+                    <span>São Paulo, SP - Brasil</span>
+                </div>
             </div>
             <form class="contact-form">
-                <input type="text" placeholder="Nome Completo">
-                <input type="email" placeholder="E-mail Corporativo">
-                <textarea rows="5" placeholder="Como podemos ajudar?"></textarea>
-                <button type="submit" class="btn btn-p" style="width: 100%; border: none; cursor: pointer;">Enviar Mensagem</button>
+                <input type="text" placeholder="Nome">
+                <input type="email" placeholder="E-mail">
+                <input type="text" class="full-width" placeholder="Assunto do Projeto">
+                <textarea rows="4" class="full-width" placeholder="Fale um pouco sobre sua ideia..."></textarea>
+                <button type="submit" class="btn btn-p full-width">Enviar Mensagem</button>
             </form>
         </div>
     </section>
@@ -278,6 +310,10 @@
     <footer>
         <span class="logo-text">OUTPOST GROUP</span>
         <p style="font-size: 0.8rem; color: var(--text-dim);">© 2026 Outpost Group. Estratégia e Tecnologia de Elite.</p>
+        <div style="display: flex; gap: 1.5rem; color: var(--text-dim);">
+            <i data-lucide="linkedin" size="20" style="cursor: pointer;"></i>
+            <i data-lucide="github" size="20" style="cursor: pointer;"></i>
+        </div>
     </footer>
 
     <script>
@@ -300,4 +336,4 @@
         });
     </script>
 </body>
-    </html>
+</html>
